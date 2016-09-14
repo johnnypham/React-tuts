@@ -110,6 +110,8 @@
               <APIRenderStudy source="https://api.github.com/users/johnnypham" />
               <DynamicTitle name = "7. Get Data and View" />
               <APIsub source="https://api.github.com/users/johnnypham/subscriptions" />
+              <APIsub source="https://api.github.com/users/vhmh2005/subscriptions" />
+              <APIsub source="https://api.github.com/users/sonlexqt/subscriptions" />
             </div>
           )
         }
@@ -233,11 +235,14 @@
             const dataSubscriptions = _.map(result, function(data){
               return {
                 subscriptions: data.subscriptions,
+                blobs_url : data.blobs_url,
                 description: data.description,
                 language:data.language,
                 teams_url:data.teams_url,
                 html_url:data.html_url,
                 name: data.name,
+                username:data.owner.login,
+                avatar: data.owner.avatar_url
               }
             });
             this.setState({
@@ -254,13 +259,30 @@
               <div className="mdl-grid">
                   {this.state.subscriptionsAPI.map(function(result) {
                     return (
-                      <div className="demo-card-wide github mdl-card mdl-shadow--2dp">
-                        <div className="mdl-card__title">
-                        <img src="https://www.designveloper.com/images/logo_orange.png"/>
+                      <div className="mdl-card github mdl-shadow--4dp">
+                        <div className="mdl-card__media">
+                          <img src={result.avatar} />
+                        </div>
+                        <div className="mdl-card__supporting-text">
                           <h2 className="mdl-card__title-text">{result.name}</h2>
                         </div>
                         <div className="mdl-card__supporting-text">
-                          {result.description}
+                        <div className='list-info'>
+                          <label>Author : </label>{result.username}
+                        </div>
+                          <div className='list-info'>
+                            <label>Blog url : </label><a href={result.html_url}>{result.name}</a>
+                          </div>
+
+                          <div className='list-info'>
+                            <label>language : </label>{result.language}
+                          </div>
+                          <div className='list-info'>
+                            <label>Link download : </label><a href={result.blobs_url}>Connect</a>
+                          </div>
+                          <div className='list-info'>
+                            <label>description : </label>{result.description}
+                          </div>
                         </div>
                         <div className="mdl-card__actions mdl-card--border">
                           <a href={result.html_url} className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
@@ -275,7 +297,7 @@
             );
           }else{
             return (
-              <div>loading</div>
+              <div>Loading...</div>
             )
           };
         }

@@ -26,9 +26,21 @@
   background-size: cover;
 }
 .github {
-  margin-bottom: 30px
+  margin-bottom: 30px;
+  margin-right:30px;
+
+}
+.github:nth-child(3n+3){
+  margin-right: 0px;
+}
+.github.mdl-card{
+  width: 316px;
+}
+.github .mdl-card__media{
+  text-align: center;
+  background-color: rgb(63,81,181);
 }
 .github img{
-  width: 45px;
+  max-width: 100%;
   display: inline-block;
 }
