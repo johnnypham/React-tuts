@@ -71,6 +71,20 @@
           )
         }
       })
+      const ThisChildrenEx = React.createClass({
+          render : function(){
+            return (
+                <div><label>{this.props.yourname}</label></div>
+            )
+          }
+      })
+      const ThisChildrenExample = React.createClass({
+          render : function(){
+            return (
+                <div><label>{this.props.children}</label></div>
+            )
+          }
+      })
       const Study02_MultipleComponents = React.createClass({
         getInitialState :function(){
            return  this.props = {
@@ -100,6 +114,10 @@
                 <DataSample />
                 <DataSample />
               </div>
+              <DynamicTitle name = "3. This Children EX " />
+              <ThisChildrenEx yourname="Vien Pham Ok :D" />
+              <DynamicTitle name = "4. Ex" />
+              <ThisChildrenExample> Johnny Pham </ThisChildrenExample>
               <DynamicTitle name = "3. Event" />
               <StudyEvent />
               <DynamicTitle name = "4. Form Data" />
@@ -355,6 +373,18 @@
         }
       });
       React.render(<Study02_MultipleComponents />, document.getElementById('react-study'));
+      {/*
+        getInitialState
+        componentWillMount
+        componentDidMount
+        componentWillUpdate
+        componentDidUpdate
+        shouldComponentUpdate
+        componentWillUnmount
+        https://facebook.github.io/react/docs/component-specs.html
+        Events
+        https://facebook.github.io/react/docs/events.html
+      */}
     </script>
 </body>
 </html>
