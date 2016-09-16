@@ -340,9 +340,6 @@
             });
           }.bind(this));
         },
-        componentWillUnmount: function() {
-          this.serverRequest.abort();
-        },
         render: function(){
           return (
             <div className="formcustom demo-card-square mdl-card mdl-shadow--2dp">
