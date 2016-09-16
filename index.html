@@ -268,9 +268,6 @@
             });
           }.bind(this));
         },
-        componentWillUnmount: function() {
-          this.serverRequest.abort();
-        },
         render: function(){
           if (this.state.subscriptionsAPI) {
             return (
@@ -383,7 +380,6 @@
         componentWillUnmount
         https://facebook.github.io/react/docs/component-specs.html
         Events
-        https://facebook.github.io/react/docs/events.html
       */}
     </script>
 </body>
